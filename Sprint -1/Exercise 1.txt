@@ -1,0 +1,20 @@
+Exercise  1 :  Understanding Database Structure
+
+Tasks : 
+
+1. Which column in the property table uniquely identifies each property ?
+
+--> property_id (INT) column in the property table uniquely identifies each property.
+
+--> Bcz this  property_id (INT) is the " Primary Key "  in the property table..
+
+2. Explain the owner_id column connects the property table to the owner table ?
+
+--> Here We need to talk about keys in SQL like there are 2 types of keys 
+
+1.Primary Key
+2.Foregin Key
+
+--> In owner table owner_id acts as a Primary key ...
+
+--> At the same time owner_id acts as a foreign key in the property table.

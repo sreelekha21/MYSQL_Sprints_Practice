@@ -1,0 +1,151 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">
+    Accommodation Booking System with Discounts - ER Diagram
+  </text>
+  
+  <!-- Customer Entity -->
+  <rect x="50" y="80" width="120" height="80" fill="#e8f4f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="110" y="105" text-anchor="middle" font-weight="bold" fill="#2c3e50">CUSTOMER</text>
+  <text x="110" y="125" text-anchor="middle" font-size="10" fill="#2c3e50">customer_id (PK)</text>
+  <text x="110" y="138" text-anchor="middle" font-size="10" fill="#2c3e50">name</text>
+  <text x="110" y="151" text-anchor="middle" font-size="10" fill="#2c3e50">email</text>
+  
+  <!-- Property Entity -->
+  <rect x="350" y="80" width="120" height="80" fill="#e8f4f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="410" y="105" text-anchor="middle" font-weight="bold" fill="#2c3e50">PROPERTY</text>
+  <text x="410" y="125" text-anchor="middle" font-size="10" fill="#2c3e50">property_id (PK)</text>
+  <text x="410" y="138" text-anchor="middle" font-size="10" fill="#2c3e50">name</text>
+  <text x="410" y="151" text-anchor="middle" font-size="10" fill="#2c3e50">price_per_night</text>
+  
+  <!-- Booking Entity -->
+  <rect x="200" y="250" width="120" height="100" fill="#e8f4f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="260" y="275" text-anchor="middle" font-weight="bold" fill="#2c3e50">BOOKING</text>
+  <text x="260" y="295" text-anchor="middle" font-size="10" fill="#2c3e50">booking_id (PK)</text>
+  <text x="260" y="308" text-anchor="middle" font-size="10" fill="#2c3e50">customer_id (FK)</text>
+  <text x="260" y="321" text-anchor="middle" font-size="10" fill="#2c3e50">property_id (FK)</text>
+  <text x="260" y="334" text-anchor="middle" font-size="10" fill="#2c3e50">check_in_date</text>
+  <text x="260" y="347" text-anchor="middle" font-size="10" fill="#2c3e50">check_out_date</text>
+  
+  <!-- Discount Entity -->
+  <rect x="550" y="250" width="120" height="120" fill="#f8e8e8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="610" y="275" text-anchor="middle" font-weight="bold" fill="#2c3e50">DISCOUNT</text>
+  <text x="610" y="295" text-anchor="middle" font-size="10" fill="#2c3e50">discount_id (PK)</text>
+  <text x="610" y="308" text-anchor="middle" font-size="10" fill="#2c3e50">discount_code</text>
+  <text x="610" y="321" text-anchor="middle" font-size="10" fill="#2c3e50">percentage_reduction</text>
+  <text x="610" y="334" text-anchor="middle" font-size="10" fill="#2c3e50">expiration_date</text>
+  <text x="610" y="347" text-anchor="middle" font-size="10" fill="#2c3e50">is_active</text>
+  <text x="610" y="360" text-anchor="middle" font-size="10" fill="#2c3e50">max_uses</text>
+  
+  <!-- Property Discount Entity (Junction) -->
+  <rect x="750" y="80" width="140" height="80" fill="#fff2e8" stroke="#f39c12" stroke-width="2"/>
+  <text x="820" y="105" text-anchor="middle" font-weight="bold" fill="#2c3e50">PROPERTY_DISCOUNT</text>
+  <text x="820" y="125" text-anchor="middle" font-size="10" fill="#2c3e50">property_id (FK)</text>
+  <text x="820" y="138" text-anchor="middle" font-size="10" fill="#2c3e50">discount_id (FK)</text>
+  <text x="820" y="151" text-anchor="middle" font-size="10" fill="#2c3e50">valid_from</text>
+  
+  <!-- Booking Discount Entity (Junction) -->
+  <rect x="380" y="430" width="140" height="100" fill="#e8f8e8" stroke="#27ae60" stroke-width="2"/>
+  <text x="450" y="455" text-anchor="middle" font-weight="bold" fill="#2c3e50">BOOKING_DISCOUNT</text>
+  <text x="450" y="475" text-anchor="middle" font-size="10" fill="#2c3e50">booking_id (FK)</text>
+  <text x="450" y="488" text-anchor="middle" font-size="10" fill="#2c3e50">discount_id (FK)</text>
+  <text x="450" y="501" text-anchor="middle" font-size="10" fill="#2c3e50">applied_date</text>
+  <text x="450" y="514" text-anchor="middle" font-size="10" fill="#2c3e50">discount_amount</text>
+  
+  <!-- Payment Entity -->
+  <rect x="50" y="430" width="120" height="100" fill="#f0e8f8" stroke="#9b59b6" stroke-width="2"/>
+  <text x="110" y="455" text-anchor="middle" font-weight="bold" fill="#2c3e50">PAYMENT</text>
+  <text x="110" y="475" text-anchor="middle" font-size="10" fill="#2c3e50">payment_id (PK)</text>
+  <text x="110" y="488" text-anchor="middle" font-size="10" fill="#2c3e50">booking_id (FK)</text>
+  <text x="110" y="501" text-anchor="middle" font-size="10" fill="#2c3e50">original_amount</text>
+  <text x="110" y="514" text-anchor="middle" font-size="10" fill="#2c3e50">final_amount</text>
+  <text x="110" y="527" text-anchor="middle" font-size="10" fill="#2c3e50">payment_date</text>
+  
+  <!-- Relationships -->
+  
+  <!-- Customer to Booking (1:N) -->
+  <line x1="170" y1="120" x2="200" y2="120" stroke="#34495e" stroke-width="2"/>
+  <line x1="200" y1="120" x2="200" y2="250" stroke="#34495e" stroke-width="2"/>
+  <text x="185" y="115" text-anchor="middle" font-size="9" fill="#34495e">makes</text>
+  <text x="185" y="200" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  <text x="185" y="245" text-anchor="middle" font-size="9" fill="#34495e">N</text>
+  
+  <!-- Property to Booking (1:N) -->
+  <line x1="350" y1="120" x2="320" y2="120" stroke="#34495e" stroke-width="2"/>
+  <line x1="320" y1="120" x2="320" y2="250" stroke="#34495e" stroke-width="2"/>
+  <text x="335" y="115" text-anchor="middle" font-size="9" fill="#34495e">booked_for</text>
+  <text x="335" y="200" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  <text x="335" y="245" text-anchor="middle" font-size="9" fill="#34495e">N</text>
+  
+  <!-- Property to Property_Discount (1:N) -->
+  <line x1="470" y1="120" x2="750" y2="120" stroke="#34495e" stroke-width="2"/>
+  <text x="610" y="115" text-anchor="middle" font-size="9" fill="#34495e">offers</text>
+  <text x="480" y="115" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  <text x="740" y="115" text-anchor="middle" font-size="9" fill="#34495e">N</text>
+  
+  <!-- Discount to Property_Discount (1:N) -->
+  <line x1="670" y1="280" x2="750" y2="280" stroke="#34495e" stroke-width="2"/>
+  <line x1="750" y1="280" x2="750" y2="160" stroke="#34495e" stroke-width="2"/>
+  <text x="710" y="275" text-anchor="middle" font-size="9" fill="#34495e">applies_to</text>
+  <text x="680" y="275" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  <text x="745" y="175" text-anchor="middle" font-size="9" fill="#34495e">N</text>
+  
+  <!-- Booking to Booking_Discount (1:N) -->
+  <line x1="320" y1="350" x2="320" y2="400" stroke="#34495e" stroke-width="2"/>
+  <line x1="320" y1="400" x2="380" y2="400" stroke="#34495e" stroke-width="2"/>
+  <line x1="380" y1="400" x2="380" y2="430" stroke="#34495e" stroke-width="2"/>
+  <text x="340" y="395" text-anchor="middle" font-size="9" fill="#34495e">uses</text>
+  <text x="340" y="375" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  <text x="375" y="415" text-anchor="middle" font-size="9" fill="#34495e">N</text>
+  
+  <!-- Discount to Booking_Discount (1:N) -->
+  <line x1="550" y1="350" x2="520" y2="350" stroke="#34495e" stroke-width="2"/>
+  <line x1="520" y1="350" x2="520" y2="480" stroke="#34495e" stroke-width="2"/>
+  <text x="535" y="345" text-anchor="middle" font-size="9" fill="#34495e">applied_in</text>
+  <text x="535" y="365" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  <text x="525" y="475" text-anchor="middle" font-size="9" fill="#34495e">N</text>
+  
+  <!-- Booking to Payment (1:1) -->
+  <line x1="200" y1="350" x2="200" y2="400" stroke="#34495e" stroke-width="2"/>
+  <line x1="200" y1="400" x2="170" y2="400" stroke="#34495e" stroke-width="2"/>
+  <line x1="170" y1="400" x2="170" y2="430" stroke="#34495e" stroke-width="2"/>
+  <text x="185" y="395" text-anchor="middle" font-size="9" fill="#34495e">generates</text>
+  <text x="185" y="375" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  <text x="175" y="415" text-anchor="middle" font-size="9" fill="#34495e">1</text>
+  
+  <!-- Legend -->
+  <rect x="950" y="80" width="200" height="300" fill="#ffffff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="1050" y="100" text-anchor="middle" font-weight="bold" fill="#2c3e50">Legend</text>
+  
+  <!-- Entity Colors -->
+  <rect x="970" y="120" width="15" height="15" fill="#e8f4f8" stroke="#2980b9"/>
+  <text x="995" y="132" font-size="11" fill="#2c3e50">Core Entities</text>
+  
+  <rect x="970" y="140" width="15" height="15" fill="#f8e8e8" stroke="#e74c3c"/>
+  <text x="995" y="152" font-size="11" fill="#2c3e50">Discount Entity</text>
+  
+  <rect x="970" y="160" width="15" height="15" fill="#fff2e8" stroke="#f39c12"/>
+  <text x="995" y="172" font-size="11" fill="#2c3e50">Property-Discount Link</text>
+  
+  <rect x="970" y="180" width="15" height="15" fill="#e8f8e8" stroke="#27ae60"/>
+  <text x="995" y="192" font-size="11" fill="#2c3e50">Booking-Discount Link</text>
+  
+  <rect x="970" y="200" width="15" height="15" fill="#f0e8f8" stroke="#9b59b6"/>
+  <text x="995" y="212" font-size="11" fill="#2c3e50">Payment Entity</text>
+  
+  <!-- Key Features -->
+  <text x="970" y="240" font-size="12" font-weight="bold" fill="#2c3e50">Key Features:</text>
+  <text x="970" y="255" font-size="10" fill="#2c3e50">• Discount codes with expiration</text>
+  <text x="970" y="270" font-size="10" fill="#2c3e50">• Property-specific discounts</text>
+  <text x="970" y="285" font-size="10" fill="#2c3e50">• Booking-discount tracking</text>
+  <text x="970" y="300" font-size="10" fill="#2c3e50">• Discount validation</text>
+  <text x="970" y="315" font-size="10" fill="#2c3e50">• Payment amount calculation</text>
+  <text x="970" y="330" font-size="10" fill="#2c3e50">• Usage limits and controls</text>
+  
+  <!-- Cardinality notation -->
+  <text x="970" y="360" font-size="12" font-weight="bold" fill="#2c3e50">Cardinality:</text>
+  <text x="970" y="375" font-size="10" fill="#2c3e50">1 = One, N = Many</text>
+</svg>
